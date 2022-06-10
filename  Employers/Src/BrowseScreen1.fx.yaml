@@ -2,17 +2,19 @@
     OnVisible: |-
         =ClearCollect(collectEmployers, {Result: "All"});
         Collect(collectEmployers, Distinct(Employers, Employer));
+        
         ClearCollect(collectYears, {Result: "All"});
         Collect(collectYears, Distinct(Employers, Title));
-
-    RectQuickActionBar1 As rectangle:
-        Height: =88
-        Width: =Parent.Width
-        ZIndex: =1
+        
+        ClearCollect(collectPHired, {Result: "All"});
+        Collect(collectPHired, Distinct(Employers, 'Programs Hired'));
+        
+        ClearCollect(collectESector, {Result: "All"});
+        Collect(collectESector, Distinct(Employers, 'Employment Sector'));
 
     "BrowseGallery1 As gallery.'BrowseLayout_Vertical_TwoTextVariant_ver4.0'":
         BorderThickness: =1
-        Height: =706
+        Height: =561
         Items: |-
             =//SortByColumns(Filter([@Employers], StartsWith(Title, TextSearchBox1.Text)), "Title", If(SortDescending1, Descending, Ascending))
             If(ddYears.Selected.Result = "All" And ddEmployers.Selected.Result = "All", 
@@ -30,7 +32,7 @@
         TemplatePadding: =0
         TemplateSize: =Min(104, Self.Height - 60)
         Width: =Parent.Width
-        Y: =429
+        Y: =574
         ZIndex: =1
 
         Title3 As label:
@@ -84,6 +86,11 @@
             Y: =Parent.TemplateHeight - 1
             ZIndex: =4
 
+    RectQuickActionBar1 As rectangle:
+        Height: =88
+        Width: =Parent.Width
+        ZIndex: =2
+
     LblAppName1 As label:
         Fill: =RGBA(58, 58, 58, 0)
         Height: =88
@@ -92,7 +99,7 @@
         Width: =Parent.Width - Self.X - IconSortUpDown1.Width - IconNewItem1.Width - IconRefresh1.Width
         Wrap: =false
         X: =20
-        ZIndex: =2
+        ZIndex: =3
 
     IconRefresh1 As icon.Reload:
         AccessibleLabel: =Self.Tooltip
@@ -107,7 +114,7 @@
         Tooltip: ="Refresh list"
         Width: =88
         X: =Parent.Width - IconNewItem1.Width - IconSortUpDown1.Width - Self.Width
-        ZIndex: =3
+        ZIndex: =4
 
     IconSortUpDown1 As icon.ArrowsUpDown:
         AccessibleLabel: =Self.Tooltip
@@ -123,7 +130,7 @@
         Tooltip: =If(SortDescending1, "Sort list in reverse alphabetical order", "Sort list in alphabetical order")
         Width: =88
         X: =Parent.Width - IconNewItem1.Width - Self.Width
-        ZIndex: =4
+        ZIndex: =5
 
     IconNewItem1 As icon.Add:
         AccessibleLabel: =Self.Tooltip
@@ -139,7 +146,7 @@
         Tooltip: ="Create new item"
         Width: =88
         X: =Parent.Width - Self.Width
-        ZIndex: =5
+        ZIndex: =6
 
     TextSearchBox1 As text:
         Align: =Left
@@ -155,7 +162,7 @@
         Size: =21
         Width: =Parent.Width
         Y: =RectQuickActionBar1.Height
-        ZIndex: =6
+        ZIndex: =7
 
     SearchIcon1 As icon.Search:
         Color: =RGBA(191, 190, 190, 1)
@@ -169,20 +176,20 @@
         Width: =TextSearchBox1.Height
         X: =TextSearchBox1.X
         Y: =TextSearchBox1.Y
-        ZIndex: =7
+        ZIndex: =8
 
     Rectangle11 As rectangle:
         Height: =2
         Width: =Parent.Width
         Y: =TextSearchBox1.Y + TextSearchBox1.Height
-        ZIndex: =8
+        ZIndex: =9
 
     ddEmployers As dropdown:
         Height: =70
         Items: =collectEmployers
         Size: =21
         Y: =226
-        ZIndex: =9
+        ZIndex: =10
 
     ddYears As dropdown:
         Height: =70
@@ -191,7 +198,14 @@
         Width: =312
         X: =328
         Y: =226
-        ZIndex: =10
+        ZIndex: =11
+
+    Dropdown1 As dropdown:
+        Height: =70
+        Items: =DropDownSample
+        Size: =21
+        Y: =400
+        ZIndex: =12
 
     Label1 As label:
         Height: =70
@@ -199,7 +213,7 @@
         Text: ="Employer"
         Width: =328
         Y: =156
-        ZIndex: =11
+        ZIndex: =13
 
     Label2 As label:
         Height: =70
@@ -208,5 +222,31 @@
         Width: =312
         X: =328
         Y: =156
-        ZIndex: =12
+        ZIndex: =14
+
+    Dropdown2 As dropdown:
+        Height: =70
+        Items: =DropDownSample
+        Size: =21
+        Width: =312
+        X: =328
+        Y: =400
+        ZIndex: =15
+
+    Label3 As label:
+        Height: =70
+        Size: =21
+        Text: ="Programs Hired"
+        Width: =328
+        Y: =330
+        ZIndex: =16
+
+    Label4 As label:
+        Height: =70
+        Size: =21
+        Text: ="Employment Sector"
+        Width: =312
+        X: =328
+        Y: =330
+        ZIndex: =17
 
