@@ -13,8 +13,17 @@
     "BrowseGallery1 As gallery.'BrowseLayout_Vertical_TwoTextVariant_ver4.0'":
         BorderThickness: =1
         Height: =706
-        Items: |
+        Items: |-
             =//SortByColumns(Filter([@Employers], StartsWith(Title, TextSearchBox1.Text)), "Title", If(SortDescending1, Descending, Ascending))
+            If(ddYears.Selected.Result = "All" And ddEmployers.Selected.Result = "All", 
+            Employers,
+            ddYears.Selected.Result = "All" And ddEmployers.Selected.Result <> "All",
+            Filter(Employers, Employer=ddEmployers.Selected.Result),
+            ddYears.Selected.Result <> "All" And ddEmployers.Selected.Result = "All",
+            Filter(Employers, Title=ddYears.Selected.Result),
+            ddYears.Selected.Result <> "All" And ddEmployers.Selected.Result <> "All",
+            Filter(Employers, Title=ddYears.Selected.Result And Employer=ddEmployers.Selected.Result)
+            )
         Layout: =Layout.Vertical
         OnSelect: =Navigate(DetailScreen1, ScreenTransition.None)
         ShowScrollbar: =false
@@ -168,14 +177,14 @@
         Y: =TextSearchBox1.Y + TextSearchBox1.Height
         ZIndex: =8
 
-    Dropdown1 As dropdown:
+    ddEmployers As dropdown:
         Height: =70
         Items: =collectEmployers
         Size: =21
         Y: =226
         ZIndex: =9
 
-    Dropdown2 As dropdown:
+    ddYears As dropdown:
         Height: =70
         Items: =collectYears
         Size: =21

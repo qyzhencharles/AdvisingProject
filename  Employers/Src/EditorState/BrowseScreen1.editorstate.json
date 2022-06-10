@@ -273,7 +273,7 @@
       "StyleName": "defaultScreenStyle",
       "Type": "ControlInfo"
     },
-    "Dropdown1": {
+    "ddEmployers": {
       "AllowAccessToGlobals": true,
       "ControlPropertyState": [
         {
@@ -334,7 +334,7 @@
       "IsLocked": false,
       "LayoutName": "",
       "MetaDataIDKey": "",
-      "Name": "Dropdown1",
+      "Name": "ddEmployers",
       "ParentIndex": 10,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -548,7 +548,7 @@
       "StyleName": "defaultDropdownStyle",
       "Type": "ControlInfo"
     },
-    "Dropdown2": {
+    "ddYears": {
       "AllowAccessToGlobals": true,
       "ControlPropertyState": [
         {
@@ -609,7 +609,7 @@
       "IsLocked": false,
       "LayoutName": "",
       "MetaDataIDKey": "",
-      "Name": "Dropdown2",
+      "Name": "ddYears",
       "ParentIndex": 11,
       "PersistMetaDataIDKey": false,
       "Properties": [
