@@ -1,4 +1,9 @@
 "BrowseScreen1 As screen.'phoneBrowseLayout_ver3.0'":
+    OnVisible: |-
+        =ClearCollect(collectEmployers, {Result: "All"});
+        Collect(collectEmployers, Distinct(Employers, Employer));
+        ClearCollect(collectYears, {Result: "All"});
+        Collect(collectYears, Distinct(Employers, Title));
 
     RectQuickActionBar1 As rectangle:
         Height: =88
@@ -165,14 +170,14 @@
 
     Dropdown1 As dropdown:
         Height: =70
-        Items: =DropDownSample
+        Items: =collectEmployers
         Size: =21
         Y: =226
         ZIndex: =9
 
     Dropdown2 As dropdown:
         Height: =70
-        Items: =DropDownSample
+        Items: =collectYears
         Size: =21
         Width: =312
         X: =328
