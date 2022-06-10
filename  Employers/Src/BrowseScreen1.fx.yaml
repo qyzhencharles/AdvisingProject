@@ -17,7 +17,7 @@
         Height: =561
         Items: |-
             =//SortByColumns(Filter([@Employers], StartsWith(Title, TextSearchBox1.Text)), "Title", If(SortDescending1, Descending, Ascending))
-            If(ddYears.Selected.Result = "All" And ddEmployers.Selected.Result = "All", 
+            If(ddYears.Selected.Result = "All" And ddEmployers.Selected.Result = "All" And ddPHired.Selected.Result = "All" And ddESector.Selected.Result = "All", 
             Employers,
             ddYears.Selected.Result = "All" And ddEmployers.Selected.Result <> "All",
             Filter(Employers, Employer=ddEmployers.Selected.Result),
@@ -42,7 +42,7 @@
             PaddingLeft: =0
             PaddingRight: =0
             PaddingTop: =0
-            Text: =ThisItem.Employer
+            Text: =ThisItem.'Compliance Asset Id'
             VerticalAlign: =VerticalAlign.Top
             Width: =Parent.TemplateWidth - 104
             X: =32
@@ -200,9 +200,9 @@
         Y: =226
         ZIndex: =11
 
-    Dropdown1 As dropdown:
+    ddPHired As dropdown:
         Height: =70
-        Items: =DropDownSample
+        Items: =collectPHired
         Size: =21
         Y: =400
         ZIndex: =12
@@ -224,9 +224,9 @@
         Y: =156
         ZIndex: =14
 
-    Dropdown2 As dropdown:
+    ddESector As dropdown:
         Height: =70
-        Items: =DropDownSample
+        Items: =collectESector
         Size: =21
         Width: =312
         X: =328
