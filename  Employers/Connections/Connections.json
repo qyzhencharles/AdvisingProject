@@ -1,0 +1,27 @@
+{
+  "3649e760-e5fd-4d2e-9ccf-4fad7d10602f": {
+    "connectionParameters": {
+      "sku": "Enterprise"
+    },
+    "connectionRef": {
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1578/1.0.1578.2813/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline"
+    },
+    "datasets": {
+      "https://yuoffice-my.sharepoint.com/personal/yqu_yorku_ca": {
+        "dataSources": {
+          "Employers": {
+            "tableName": "245e85bf-3d50-4679-8278-3a3121b6a9e3"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "Employers"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "3649e760-e5fd-4d2e-9ccf-4fad7d10602f"
+  }
+}
