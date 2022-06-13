@@ -17,14 +17,56 @@
         Height: =561
         Items: |-
             =//SortByColumns(Filter([@Employers], StartsWith(Title, TextSearchBox1.Text)), "Title", If(SortDescending1, Descending, Ascending))
-            If(ddYears.Selected.Result = "All" And ddEmployers.Selected.Result = "All" And ddPHired.Selected.Result = "All" And ddESector.Selected.Result = "All", 
-            Employers,
-            ddYears.Selected.Result = "All" And ddEmployers.Selected.Result <> "All",
-            Filter(Employers, Employer=ddEmployers.Selected.Result),
-            ddYears.Selected.Result <> "All" And ddEmployers.Selected.Result = "All",
-            Filter(Employers, Title=ddYears.Selected.Result),
-            ddYears.Selected.Result <> "All" And ddEmployers.Selected.Result <> "All",
-            Filter(Employers, Title=ddYears.Selected.Result And Employer=ddEmployers.Selected.Result)
+            If(
+                ddYears.Selected.Result = "All" And ddEmployers.Selected.Result = "All" And ddESector.Selected.Result = "All",
+                Employers,
+            
+                ddYears.Selected.Result = "All" And ddEmployers.Selected.Result = "All" And ddESector.Selected.Result <> "All",
+                Filter(
+                    Employers,
+                    'Employment Sector' = ddESector.Selected.Result
+                ),
+                ddYears.Selected.Result <> "All" And ddEmployers.Selected.Result = "All" And ddESector.Selected.Result = "All",
+                Filter(
+                    Employers,
+                    Title = ddYears.Selected.Result
+                ),
+                ddYears.Selected.Result = "All" And ddEmployers.Selected.Result <> "All" And ddESector.Selected.Result = "All",
+                Filter(
+                    Employers,
+                    Employer = ddEmployers.Selected.Result 
+                ),
+            
+            
+            
+                ddYears.Selected.Result = "All" And ddEmployers.Selected.Result <> "All" And ddESector.Selected.Result <> "All",
+                Filter(
+                    Employers,
+                    Employer = ddEmployers.Selected.Result And 'Employment Sector' = ddESector.Selected.Result
+                ),
+            
+                ddYears.Selected.Result <> "All" And ddEmployers.Selected.Result <> "All" And ddESector.Selected.Result = "All",
+                Filter(
+                    Employers,
+                    Employer = ddEmployers.Selected.Result And Title = ddYears.Selected.Result
+                ),
+            
+                ddYears.Selected.Result <> "All" And ddEmployers.Selected.Result = "All" And ddESector.Selected.Result <> "All",
+                Filter(
+                    Employers,
+                    'Employment Sector' = ddESector.Selected.Result And Title = ddYears.Selected.Result
+                ),
+            
+                ddYears.Selected.Result <> "All" And ddEmployers.Selected.Result <> "All" And ddESector.Selected.Result <> "All",
+                Filter(
+                    Employers,
+                    'Employment Sector' = ddESector.Selected.Result And Title = ddYears.Selected.Result And  ddEmployers.Selected.Result
+                )
+            
+            
+            
+            
+                
             )
         Layout: =Layout.Vertical
         OnSelect: =Navigate(DetailScreen1, ScreenTransition.None)
