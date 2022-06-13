@@ -229,7 +229,7 @@
       "AllowAccessToGlobals": true,
       "ControlPropertyState": [
         {
-          "AFDDataSourceName": "Career Supports",
+          "AFDDataSourceName": "",
           "AutoRuleBindingEnabled": false,
           "AutoRuleBindingString": "",
           "InvariantPropertyName": "Items",

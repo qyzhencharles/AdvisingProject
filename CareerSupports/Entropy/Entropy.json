@@ -65,7 +65,7 @@
   },
   "FunctionParamsInvariantScripts": {},
   "FunctionParamsInvariantScriptsOnInstances": {},
-  "HeaderLastSavedDateTimeUTC": "06/13/2022 13:22:02",
+  "HeaderLastSavedDateTimeUTC": "06/13/2022 13:26:36",
   "IsLegacyComponentAllowGlobalScopeCase": false,
   "LocalConnectionIDReferences": {
     "34a89686-477e-48bb-8929-18791610f616": "\"/providers/microsoft.powerapps/apis/shared_sharepointonline/connections/0e1cc4637ac245a8ab867b868f8b570a\""
@@ -135,12 +135,12 @@
     "IconBackarrow1": 18,
     "IconCancel1": 33,
     "IconDelete1": 20,
-    "IconEdit1": 19,
+    "IconEdit1": 21,
     "IconNewItem1": 4,
     "IconRefresh1": 2,
     "IconSortUpDown1": 3,
     "LblAppName1": 1,
-    "LblAppName2": 21,
+    "LblAppName2": 19,
     "LblAppName3": 35,
     "NextArrow1": 14,
     "Rectangle11": 7,

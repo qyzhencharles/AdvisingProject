@@ -106,7 +106,18 @@
     "BrowseGallery1 As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver4.0'":
         BorderThickness: =1
         Height: =692
-        Items: =SortByColumns(Filter([@'Career Supports'], StartsWith(Title, TextSearchBox1.Text)), "Title", If(SortDescending1, Descending, Ascending))
+        Items: |-
+            =// SortByColumns(Filter([@'Career Supports'], StartsWith(Title, TextSearchBox1.Text)), "Title", If(SortDescending1, Descending, Ascending))
+            
+            If(ddYears.Selected.Result = "All" And ddCategories.Selected.Result = "All", 
+            'Career Supports',
+            ddYears.Selected.Result = "All" And ddCategories.Selected.Result <> "All",
+            Filter('Career Supports', Category=ddCategories.Selected.Result),
+            ddYears.Selected.Result <> "All" And ddCategories.Selected.Result = "All",
+            Filter('Career Supports', Title=ddYears.Selected.Result),
+            ddYears.Selected.Result <> "All" And ddCategories.Selected.Result <> "All",
+            Filter('Career Supports', Title=ddYears.Selected.Result And Category=ddCategories.Selected.Result)
+            )
         Layout: =Layout.Vertical
         OnSelect: =Navigate(DetailScreen1, ScreenTransition.None)
         ShowScrollbar: =false
